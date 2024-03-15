@@ -1,0 +1,53 @@
+<!-- This will be the browse, main page -->
+<%- include("partials/header.ejs") %>
+<% console.log(data); %> 
+<main class="container-fluid">
+  <!-- Card -->
+  <div class="row row-cols-lg-4 row-cols-sm-2 g-4">
+    <%data.forEach(function(product) {var serial = product.product_id; var name = product.name; var description = product.description; var price = product.price%>
+
+    <div class="col">
+      <a data-bs-toggle="modal" data-bs-target="#product-<%-serial%>">
+        <div class="card">
+          <img src="img/<%= serial %>.jpg" alt="example image here" />
+          <div class="card-body">
+            <div class="d-flex">
+              <h5 class="card-title flex-grow-1"><%= name %></h5>
+              <h5 class="btn btn-primary"><%= price%></h5>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    </div>
+    <!-- MODALS -->
+    <div class="modal fade" id="product-<%-serial%>" tabindex="-1" aria-labelledby="product-<%-serial%>" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="name-<%-serial%>"><%-name%></h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <!--<div class="gallery">
+              <%// locals.data[i].album.forEach((albumPic) => {%>
+                  <img class="rounded-3 gallery-item" src="img/<%=//albumPic%>" alt="" onclick="viewImage(this)" />
+              <%//}) %>-->
+
+              <!-- IMAGE GALLERY DISABLED -->
+            </div>
+            <p id="description-<%=serial%>" contenteditable="false"><%-description%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%});%>
+  </div>
+</main>
+<script>
+  function viewImage(smallImg) {
+    var fullImg = document.getElementById("Viewer");
+    fullImg.src = smallImg.src;
+  }
+</script>
+<%- include("partials/footer.ejs") %>
