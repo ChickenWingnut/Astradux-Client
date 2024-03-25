@@ -1,6 +1,5 @@
 <!-- This will be the browse, main page -->
 <%- include("partials/header.ejs") %>
-<% console.log(data); %> 
 <main class="container-fluid">
   <!-- Card -->
   <div class="row row-cols-lg-4 row-cols-sm-2 g-4">
@@ -22,7 +21,7 @@
     </div>
     <!-- MODALS -->
     <div class="modal fade" id="product-<%-serial%>" tabindex="-1" aria-labelledby="product-<%-serial%>" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="name-<%-serial%>"><%-name%></h1>
